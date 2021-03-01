@@ -10,7 +10,7 @@
 
 ## Installation
 
-If be failed to install the package online, please try download it and install locally.
+Only for Windows. Download the binary package (lpnet_0.1.0.zip) for install and install the package locally.
 
 ## Reference
 
