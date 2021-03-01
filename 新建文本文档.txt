@@ -1,0 +1,20 @@
+n<-30
+z<-runif(n*(n-1)/2,0,n)
+M <- matrix(0,n,n)
+M[row(M)>col(M)] <- z
+for (i in 1:(n-1)) {
+  for (j in (i+1):n) {
+    M[i,j]<-M[j,i]
+  }
+}
+for (k in 1:n) {
+  for (i in 1:(n-1)) {
+    for (j in (i+1):n) {
+      p<-min(M[i,j],M[i,k]+M[k,j])
+      if(M[i,j]>p){
+        M[i,j]<-M[j,i]<-p
+      }
+    }
+  }
+}
+lpnet(M)
