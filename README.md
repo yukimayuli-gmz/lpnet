@@ -3,9 +3,9 @@
 ## Package
 
   A R package for constructing a circular split network from a distance matrix by Linear Programming. The functions in `lpnet` package are<br>
-`lpnet`<br>
-`read.nexus.distanceblock`<br>
-`read.nexus.taxablock`<br>
+* `lpnet`<br>
+* `read.nexus.distanceblock`<br>
+* `read.nexus.taxablock`<br>
   The main function is `lpnet`. `lpnet` constructs a planner network which has a circular ordering for a distance matrix, and writes a nexus file for `SplitsTree4`. First construct a tree by different tree construct method (`neighbot-joining`, symmetry and not symmetry `neighbornet tree`, `UNJ`, `BioNJ`) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. The ordering have the biggest sum of quartets for all taxa is the lp net ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, write a nexus file with taxa block and splits block for `SplitsTree4` to see the circular network.
 
 ## Installation
