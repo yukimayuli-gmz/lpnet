@@ -1357,6 +1357,8 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' @return None (invisible ‘NULL’).
 #'
 #' @importFrom ape nj
+#' @importFrom Rglpk Rglpk_solve_LP
+#' @importFrom nnls nnls
 #' @importFrom utils read.table
 #' @importFrom utils write.table
 #'
@@ -1435,12 +1437,19 @@ lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type=NULL,filename="lp
     lp_rhs<-make_lp_rhs(n)
     lp_dir<-make_lp_dir(n)
 
-    if(lp.type=="C"){#object variables are continuous
+    if(is.null(lp.type)){#object variables are ordinary
       eg.rglpk<-Rglpk_solve_LP(obj = lp_c,
                                mat = lp_matrix,
                                rhs = lp_rhs,
                                dir = lp_dir,
-                               max = TRUE,)
+                               max = TRUE)
+    }else if(lp.type=="C"){#object variables are continuous
+      eg.rglpk<-Rglpk_solve_LP(obj = lp_c,
+                               mat = lp_matrix,
+                               rhs = lp_rhs,
+                               dir = lp_dir,
+                               max = TRUE,
+                               types = "C")
     }else if(lp.type=="B"){#object variables are binary
       eg.rglpk<-Rglpk_solve_LP(obj = lp_c,
                                mat = lp_matrix,
@@ -1469,8 +1478,9 @@ lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type=NULL,filename="lp
     model$rhs <- make_lp_rhs(n)
     model$sense <- make_lp_dir(n)
     params <- list(OutputFlag=0)
+    if(is.null(lp.type)){#object variables are ordinary
 
-    if(lp.type=="C"){#object variables are continuous
+    }else if(lp.type=="C"){#object variables are continuous
       model$vtype <- "C"
     }else if(lp.type=="B"){#object variables are binary
       model$vtype <- "B"

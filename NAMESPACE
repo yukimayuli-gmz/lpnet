@@ -3,6 +3,8 @@
 export(lpnet)
 export(read.nexus.distanceblock)
 export(read.nexus.taxablock)
+importFrom(Rglpk,Rglpk_solve_LP)
 importFrom(ape,nj)
+importFrom(nnls,nnls)
 importFrom(utils,read.table)
 importFrom(utils,write.table)

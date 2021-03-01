@@ -10,7 +10,7 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    ape
+    ape, Rglpk, nnls
 RoxygenNote: 7.1.0
 Suggests: 
     gurobi
