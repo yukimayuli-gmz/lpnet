@@ -271,7 +271,7 @@ calculate_reduced_M_12_nnetns<-function(M,i,j){
   return(A)
 }
 #calculate distance between u and other taxa (when select 2-2) (j[3] is outside)
-calculate_reduced_M_22_nnetns<-function(M,N,L1,L2,i,j){
+calculate_reduced_M_22_nnetns<-function(M,N,L1,L2,i,j,n){
   d<-sqrt(length(M))
   A<-matrix(0,d-1,d-1)
   for (a in (1:(d-1))) {
@@ -731,9 +731,9 @@ NNetT_no_sym<-function(M){
           L1[j,3]<-L1[j,2]
           L1[j,2]<-p
         }
-        M0<-calculate_reduced_M_22(M,N,L1,L2,i,j)
+        M0<-calculate_reduced_M_22_nnetns(M,N,L1,L2,i,j,n)
         M<-M0[[1]]
-        N<-calculate_reduced_N_22(N,L1,L2,i,j,M0[[2]])
+        N<-calculate_reduced_N_22_nnetns(N,L1,L2,i,j,M0[[2]])
         L2<-reduce_label_L2_22(L1,L2,i,j,n)
         L1<-reduce_label_L1_22(L1,L2,i,j,n)
         a<-1
@@ -1009,7 +1009,7 @@ BioNJ<-function(M,sequence_length = 1){
 }
 
 #adjust the ordering for edge in tree matrix
-adjust_edge<-function(a,tredge){
+adjust_edge<-function(a,tredge,n){
   y<-a
   A<-matrix(0,nrow = 2*n-3,ncol = 2)
   t<-1
@@ -1186,6 +1186,7 @@ reverse<-function(a,t){
 }
 #calculate the ordering of lpnet
 lp_opt<-function(ordering,edge,tredge,taxa){
+  n<-length(ordering)
   for (i in ((n+2):(2*n-2))) {
     t<-which_ordering_in_taxa(ordering,taxa[[i]])
     i0<-tredge[tredge[,2]==i][1]
@@ -1356,9 +1357,8 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' @return None (invisible ‘NULL’).
 #'
 #' @importFrom ape nj
-#' @importFrom Rglpk Rglpk_solve_LP
-#' @importFrom nnls nnls
-#' @importFrom gurobi gurobi
+#' @importFrom utils read.table
+#' @importFrom utils write.table
 #'
 #' @examples
 #' ### From Huson and Bryant (2006, Fig 4):
@@ -1387,25 +1387,25 @@ lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type=NULL,filename="lp
     tr1 <- NNetT(M)#tr1 is nnet tree
     tredge=tr1[["edge"]]
     y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
-    tr1$edge<-adjust_edge(y,tredge)
+    tr1$edge<-adjust_edge(y,tredge,n)
   }
   if(tree.method=="nnetns"){
     tr1 <- NNetT_no_sym(M)#tr1 is nnet no symmetry tree
     tredge=tr1[["edge"]]
     y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
-    tr1$edge<-adjust_edge(y,tredge)
+    tr1$edge<-adjust_edge(y,tredge,n)
   }
   if(tree.method=="unj"){
     tr1 <- BalanceT(M)#tr1 is unweighted neighbor joining tree
     tredge=tr1[["edge"]]
     y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
-    tr1$edge<-adjust_edge(y,tredge)
+    tr1$edge<-adjust_edge(y,tredge,n)
   }
   if(tree.method=="BioNJ"){
     tr1 <- BioNJ(M,sequencelength)#tr1 is BioNJ tree
     tredge=tr1[["edge"]]
     y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
-    tr1$edge<-adjust_edge(y,tredge)
+    tr1$edge<-adjust_edge(y,tredge,n)
   }
 
   tredge=tr1[["edge"]]#list of which taxa under a interior node
