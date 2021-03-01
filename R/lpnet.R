@@ -1287,7 +1287,7 @@ make.nexus_split_block_order<-function(o,p,k,taxaname=NULL){
         }
         if(i!=1){
           nsplit<-c(1)
-          if(i>3){
+          if(i>2){
             for (ij in 2:(i-1)) {
               nsplit<-paste(nsplit,ij)
             }
