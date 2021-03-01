@@ -6,20 +6,21 @@
 \usage{
 lpnet(
   M,
-  tree.method = "nj",
+  tree.method = "unj",
   lp.package = "Rglpk",
   lp.type = NULL,
   filename = "lpnet.nex",
-  taxaname = NULL
+  taxaname = NULL,
+  sequencelength = 1
 )
 }
 \arguments{
 \item{M}{the distance matrix for construct tree and network;
 (the matrix should fit the triangle inequality and the diagonal should be 0).}
 
-\item{tree.method}{method for construct the original tree for lp, default is \code{nj}, for ntighbor joining;
-\code{nnet} for nnet tree; \code{nnetns} for no symmetry nnet tree; \code{balance} for balance nnet tree;
-\code{qj} for quartet joining tree.}
+\item{tree.method}{method for construct the original tree for lp, default is \code{unj}, for unweighted ntighbor joining tree;
+\code{nj} for neighbor joining tree; \code{nnet} for symmetry nnet tree; \code{nnetns} for no symmetry nnet tree;
+\code{BioNJ} for BioNJ tree.}
 
 \item{lp.package}{which package will used for Linear Programming, default is \code{Rglpk}, for a free R package;
 \code{gurobi} for the gurobi package.}
@@ -30,12 +31,14 @@ lpnet(
 \item{filename}{a character will be the naxus file's name, default is \code{lpnet.net}}
 
 \item{taxaname}{a character set of names for taxa, ordering is consist with original distance matrix \code{M}.}
+
+\item{sequencelength}{the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).}
 }
 \value{
 None (invisible ‘NULL’).
 }
 \description{
-Construct a planner network which has a circular ordering for a distrance matrix, and write a nexus file for SplitsTree4.
+Construct a planner network which has a circular ordering for a distance matrix, and write a nexus file for SplitsTree4.
 First construct a tree for the distance matrix.Then use Linear Programming(lp) to change the circular ordering.
 The ordering have the biggest sum of quartets for all taxa is the lp net ordering.
 Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering.

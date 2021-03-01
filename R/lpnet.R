@@ -1334,7 +1334,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 
 #' Consruct a circular network based on a tree by Linear Programming
 #'
-#' Construct a planner network which has a circular ordering for a distrance matrix, and write a nexus file for SplitsTree4.
+#' Construct a planner network which has a circular ordering for a distance matrix, and write a nexus file for SplitsTree4.
 #' First construct a tree for the distance matrix.Then use Linear Programming(lp) to change the circular ordering.
 #' The ordering have the biggest sum of quartets for all taxa is the lp net ordering.
 #' Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering.
