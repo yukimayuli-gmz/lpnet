@@ -14,7 +14,7 @@ If be failed to install the package online, please try download it and install l
 
 ## Reference
 -------------------------
-[Bryant, D., & Moulton, V. (2004). Neighbor-net: an agglomerative method for the construction of phylogenetic networks. Molecular biology and evolution, 21(2), 255-265.](https://academic.oup.com/mbe/article-abstract/21/2/255/1187993)
-[Gascuel, O. (1997). BIONJ: an improved version of the NJ algorithm based on a simple model of sequence data. Molecular biology and evolution, 14(7), 685-695.](https://academic.oup.com/mbe/article-abstract/14/7/685/1119804)
-[Gascuel, O. (1997). Concerning the NJ algorithm and its unweighted version, UNJ. Mathematical hierarchies and biology, 37, 149-171.](https://books.google.com/books?hl=zh-CN&lr=&id=stL67JmcWSkC&oi=fnd&pg=PA149&dq=Concerning+the+NJ+algorithm+and+its+unweighted+version,+UNJ&ots=WVM_Ligot1&sig=QaVyXPWnIs6R2090OTsmO41duBQ)
+[Bryant, D., & Moulton, V. (2004). Neighbor-net: an agglomerative method for the construction of phylogenetic networks. Molecular biology and evolution, 21(2), 255-265.](https://academic.oup.com/mbe/article-abstract/21/2/255/1187993)<br>
+[Gascuel, O. (1997). BIONJ: an improved version of the NJ algorithm based on a simple model of sequence data. Molecular biology and evolution, 14(7), 685-695.](https://academic.oup.com/mbe/article-abstract/14/7/685/1119804)<br>
+[Gascuel, O. (1997). Concerning the NJ algorithm and its unweighted version, UNJ. Mathematical hierarchies and biology, 37, 149-171.](https://books.google.com/books?hl=zh-CN&lr=&id=stL67JmcWSkC&oi=fnd&pg=PA149&dq=Concerning+the+NJ+algorithm+and+its+unweighted+version,+UNJ&ots=WVM_Ligot1&sig=QaVyXPWnIs6R2090OTsmO41duBQ)<br>
 [Saitou, N., & Nei, M. (1987). The neighbor-joining method: a new method for reconstructing phylogenetic trees. Molecular biology and evolution, 4(4), 406-425.](https://academic.oup.com/mbe/article-abstract/4/4/406/1029664)
