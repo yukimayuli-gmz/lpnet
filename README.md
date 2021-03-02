@@ -11,6 +11,7 @@
 ## Installation
 
 Only for Windows. Download the binary package (`lpnet_0.1.0.zip`) for install and install the package locally.
+devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
 
 ## Reference
 
