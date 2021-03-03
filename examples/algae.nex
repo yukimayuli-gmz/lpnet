@@ -1,0 +1,397 @@
+#nexus
+[! Example of RNA data
+Processed by SplitsTree4]
+
+BEGIN Taxa;
+DIMENSIONS ntax=8;
+TAXLABELS
+[1] 'Tobacco'
+[2] 'Rice'
+[3] 'Marchantia'
+[4] 'Chlamydomonas'
+[5] 'Chlorella'
+[6] 'Euglena'
+[7] 'Anacystis_nidulans'
+[8] 'Olithodiscus'
+;
+END; [Taxa]
+
+BEGIN Characters;
+DIMENSIONS nchar=920;
+FORMAT
+	datatype='rna' missing=? gap=- symbols="augc" labels=left transpose=no interleave=yes;
+MATRIX
+'Tobacco'            aagaaccugcccuugggagcuggaaacggcugcuaauaccccguaggggcucgcgucuga
+'Rice'               aagaaccugcccuugggaacuggaaacgguugcuaauaccccguaggggcucgcgucuga
+'Marchantia'         aagaaccugcccuugggagcuggaaacgguugcuaauaccccauaggggcuugcgucuga
+'Chlamydomonas'      aagaaccuaccuaucggauugggaaacuguugcuaauaccccauaggggcuugcgucuga
+'Chlorella'          aagaaccuaccuuuaggaacuggaaacgguugcuaauaccccauaugggcuugcgucuga
+'Euglena'            aagaaucugcgcuugggagauggaaacguuugcuaaugccucauaugagcuugcaucuga
+'Anacystis_nidulans' gagaaucugccuacaggaguuggaaacgacugcuaauacccgauaugagcucgcgucuga
+'Olithodiscus'       gagaaucugccuuuaggauuuggaaacgaaugcuaauaccuuauaggagcucgcggcuga
+
+'Tobacco'            uuagcuaguugguggcaagcuuaccaaggcgaugacugguccgagaggaugaucagccac
+'Rice'               uuagcuaguugguggcaagcuuaccaaggcgaugacugguccgagaggaugaucagccac
+'Marchantia'         uuagcuaguuggugguaagcuuaccaaggcgacgacuggucugagaggaugaucagccac
+'Chlamydomonas'      uuagcuaguuggugguaagccucccaaggccacgacuggucugagaggaugaucagccac
+'Chlorella'          uuagcuuguuggugguaagcuuaccaaggcaacgacuggucugagaggaugaucagccac
+'Euglena'            uuagcuuguuggugguaagcuuaccaaggcgacgacugauuugagaggaugaucagccac
+'Anacystis_nidulans' uuagcuaguuggugguaagccuaccaaggcgacgacuggucugagaggaugaucagccac
+'Olithodiscus'       uuagcuaguuggugguaagccuaccaaggcgaucacugauuugagaggaugaucagucac
+
+'Tobacco'            acugggacugagacacggcccagacuccuacgggaggcagcaguggggaauuuuccgcaa
+'Rice'               acugggacugagacacggcccagacuccuacgggaggcagcaguggggaauuuuccgcaa
+'Marchantia'         acugggacugagacacggcccagacucuuacgggaggcagcaguggggaauuuuccgcaa
+'Chlamydomonas'      acugggacugagacacggcccagacuccuacgggaggcagcagugaggaauuuuucgcaa
+'Chlorella'          acugggacugagacacggcccagacuucuacggaaggcagcagugaggaauuuuccgcaa
+'Euglena'            acugggauugaga-acggaacagacuucuacggaaggcagcagugaggaauuuuccgcaa
+'Anacystis_nidulans' acugggacugagacacggcccagacuccuacgggaggcagcaguggggaauuuuccgcaa
+'Olithodiscus'       acuggaacugagacacgguccagacuccuacgggaggcagcaguggggaauuuucugcaa
+
+'Tobacco'            ugggcgaaagacggagcaaugccgcguggagguagaagggggucgugacuuuucccggag
+'Rice'               ugggcgaaagacggagcaaugccgcguggagguggaaggggucgucaacuuuucucggag
+'Marchantia'         ugggcgaaacacggagcaaugccgcguggagguagaagggggucguaacuuuucucagag
+'Chlamydomonas'      ugggcgcaagacggagcaaugccgcgugcaggaagaagggggucguaacuuuucucagag
+'Chlorella'          ugggcgaaagacggagcaaugccgcguggaggaugacaggggucguaacuuuucucagag
+'Euglena'            ugggcgcaagacggagcaauaccgcgugaaggaagacggggguugaaacuuuucucaaag
+'Anacystis_nidulans' ugggcgcaagacggagcaacgccgcgugggggaggaaggggacuguaacuuuucucaggg
+'Olithodiscus'       ugggcgaaagacagagcaauaccgcgugagggaugacagggauuguaacuuuuuucaggg
+
+'Tobacco'            aagaugacgguaucuggggaauaagcaucggcuaacucugaaucccagggcucaacccug
+'Rice'               aagaugacgguaucugaggaauaagcaucggcuaacucugaaucccagggcucaacccug
+'Marchantia'         aagaugacgguaucugaggaauaagcaucggcuaacucugaaucccagggcucaacccug
+'Chlamydomonas'      aagaugacgguaucugaggaauaagcaccggcuaacucugaauaccagggcucaaccuug
+'Chlorella'          aagaugacgguaucugaggaauaagcaucggcuaacuccgaagaucagggcuuaacccug
+'Euglena'            aagaugacgguauuugaggaauaagcaucggcuaauuccgaaagucaaagcuuaacuuug
+'Anacystis_nidulans' aagaugacgguaccugaggaauaagccucggcuaauuccgaagcguggggcucaaccuca
+'Olithodiscus'       aggaugacguuaccugaagaauaagcaucggcuaacuccgaaucuuaaggcucaaccuua
+
+'Tobacco'            gacaggcgguggacuggaguacgguaggggcagagggaauuguggagcggugaaaugcgu
+'Rice'               gacaggcgguggacuggaguacgguaggggcagagggaauuguggagcggugaaaugcau
+'Marchantia'         gacaggcgguggacuggaguacgguaggggcagagggaauuguggagcggugaaaugcgu
+'Chlamydomonas'      gaccggcauuggacuugaguacgguaggggcagagggaauuguggagcggugaaaugcgu
+'Chlorella'          agucggcaguagacuugaguacgguaggggcagagggaauuguguagcggugaaaugcgu
+'Euglena'            gaagggcauuaaacuugaguaugguaggggugaagggaauuguguagcggugaaaugcgu
+'Anacystis_nidulans' uacaggcaauggacuagaguaugguagggguagcgggaauuguguagcggugaaaugcgu
+'Olithodiscus'       aaccagcaauggacuugagugugguagagguagagggaauuguggagcggugaaaugcgu
+
+'Tobacco'            agagaucggaaagaacaccaacggcgaaagcacucugcugggccgacacugacacugaga
+'Rice'               ugagaucggaaagaacaccaacggcgaaagcacucugcugggccgacacugacacugaga
+'Marchantia'         agagaucggaaagaacaccaauggcgaaagcacucuucugggccgacacugacacugaga
+'Chlamydomonas'      agagauauggaggaacaccaguggcgaaggcgcucugcugggccgaaacugacacugaga
+'Chlorella'          agagaucgggaagaacaccaauggcgaaag-acucugcugggccgaaacugacacucaga
+'Euglena'            agagauuggaaagaacaccaauggcgaaggcacuuuucuaggccaauacugacgcugaga
+'Anacystis_nidulans' agauaucuggaagaacaccagcggcgaaagcgcgcuacugggccauaacugacgcucaug
+'Olithodiscus'       agauauuggaaagaccaccaauggcgaaggcacucuacugggccauuacugacacugaga
+
+'Tobacco'            gacgaaagcuaggggagcgaaugggauuagauaccccaguaguccuagccguaaacgaug
+'Rice'               gacgaaagcuaggggagcaaaugggauuagagaccccaguaguccuagccguaaacgaug
+'Marchantia'         gacgaaagcuaggggagcaaaugggauuagauaccccaguaguccuagccguaaacgaug
+'Chlamydomonas'      gacgaaagcugggggagcgaauaggauuagauacccuaguagucccagccguaaacuaug
+'Chlorella'          gacgaaagcuaggggagcgaaugggauuagauaccccaguaguccuagccguaaacgaug
+'Euglena'            aacgaaagcugagggagcaaacaggauuagauacccu-guagucuuggccguaaacuaug
+'Anacystis_nidulans' gacgaaagcuaggggagcgaaagggauuagauaccccuguaguccuagccguaaacgaug
+'Olithodiscus'       gacgaaagcuaggggagcaaaugggauuagauaccccaguaguccuagcuguaaacgaug
+
+'Tobacco'            gauacuaggcgcugcagugcuguagcuaacgcguuaaguaucccgccuggggaguacguu
+'Rice'               gauacuaggugcugcagugcuguagcuaacgcguuaaguaucccgccuggggaguacguu
+'Marchantia'         gauacuaagcgcugcagugcuguagcuaacgcguuaaguaucccgccuggggaguacguu
+'Chlamydomonas'      gagacuaagugcugcagugcuguagcuaacgcguuaagucucccgccuggggaguaugcu
+'Chlorella'          gauacuaagugcugcaguacuguagcuaacgcgugaaguaucccgccuggggaguaugcu
+'Euglena'            gauacuaaguggugcacugcuguaguuaacacguuaaguaucccgccuggggaguacgcu
+'Anacystis_nidulans' aacacuagguguugcagugccguagccaacgcguuaaguguuccgccuggggaguacgca
+'Olithodiscus'       gauacuagaugucgcgguauuauagcuaacgcguuaaguaucccgccugggaaguaugcu
+
+'Tobacco'            cgcaagaaugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+'Rice'               cgcaagaaugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+'Marchantia'         cgcaagaaugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+'Chlamydomonas'      cgcaagagugaaacucaaaggaauugacggga--ccgcacaagcgguggauuauguggau
+'Chlorella'          cgcaagagugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+'Euglena'            ugcacaagugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+'Anacystis_nidulans' cgcaaguuggaaacucaaaggaauugacgggggcccgcacaagcgguggaguaugugguu
+'Olithodiscus'       cgcaagagugaaacucaaaggaauugacgggggcccgcacaagcgguggagcaugugguu
+
+'Tobacco'            uaauucgaugcaaagcgaagaaccuuaccagggcuugacaauccucuugaaaacaggugg
+'Rice'               uaauucgaugcaaagcgaagaaccuuaccagggcuugacaauccucuugaaaacaggugg
+'Marchantia'         uaauucgaugcaacgcgaagaaccuuaccagggcuugacaaucuuuuugaaaacaggugg
+'Chlamydomonas'      uaauucgauacaacgcgaagaaccuuaccaggguuugacaaccucucagaaaacaggugg
+'Chlorella'          uaauucgaugcaacgcgaagaaccuuaccagggcuugaca------------acaggugg
+'Euglena'            uaauucgaugcaacacgaagaaccuuaccaggauuugacaa-------gaaaacaggugg
+'Anacystis_nidulans' uaauucgaugcaacgcgaagaaccuuaccaggguuugacaaucucuuggaaaacaggugg
+'Olithodiscus'       uaauucgaugcaacgcgaagaaccuuaccaggguuugacaaguuuuuugaaaacaggugg
+
+'Tobacco'            ugcauggcugucgucagcgugccguaaguguuggguuaagucccgcaacgagcgcaaccc
+'Rice'               ugcauggcugucgucagcgugccguaaguguuggguuaagucucgcaacgagcgcaaccc
+'Marchantia'         ugcauggcugucgucagcgugccguaaguguuggguuaagucccgcaacgagcgcaaccc
+'Chlamydomonas'      ugcauggcugucgucagcgugcugugaauguauaguuaagucucauaacgagcgcaaccc
+'Chlorella'          ugcauggcugucgucagcgugucgugaguguuggguuaagucccgcaacgagcgcaaccc
+'Euglena'            ugcauggcugucgucagcgugucgugaguguuggguuaagucccgcaacgagcgcaaccc
+'Anacystis_nidulans' ugcauggcugucgucagcgugucgugaguguuggguuaagucccgcaacgagcgcaaccc
+'Olithodiscus'       ugcauggcugucgucagcgugucgugaguguuggguuaagucccgcaacgagcguaaccc
+
+'Tobacco'            ucguguucggaggaaggugaggaugacgucaagucaucaugccccuuagggcgacacacg
+'Rice'               ucguguucggaggaaggagaggaugaggccaagucaucaugccccuuagggcgacacacg
+'Marchantia'         ucuuguucggaggaaggugaggaugacgucaagucagcaugccccuuagggcgacacacg
+'Chlamydomonas'      ucgucuucggaggaaggugaggaugacgucaagucagcaugccccuuagggcuucacacg
+'Chlorella'          uuguuuucggaggaaggugaggaugacgucaagucagcaugccccuuagggcgacacacg
+'Euglena'            uuuuuuucggaggaaggugaggacgacgucaagucaucaugccccuuagggcuacacacg
+'Anacystis_nidulans' acguuuucggaggaagguguggacgacgucaagucaucaugccccuuagggcuacacacg
+'Olithodiscus'       uuguuuucggaggaagguaaggacgacgucaagucaucaugccccuuagggcuacacacg
+
+'Tobacco'            ugcuacaauggccgggacaaagggucgcgaucccgcgag-gugagcuaaaacccguccuc
+'Rice'               ugcuacaaugggcgggacaaagggucgcgaucucgcgagggugagcuaaaacccguccuc
+'Marchantia'         ugcuacaauggccgggacaaagggucgcgaccucgcgagagaaagcuaaaacccggccuc
+'Chlamydomonas'      uaauacaaugguugggacaaucagaagcga-cucgugagagcuagcggcaacccaaccuc
+'Chlorella'          ugcuacaauggccaggacaaugagaugcuaccucgcgagagcaagcuaaaaccuggucuc
+'Euglena'            ugcuacaaugguuaagacaauaaguugcaauuuugugaaaaugagcuaaaacuuagccua
+'Anacystis_nidulans' uacuacaaugcuccggacagcgagacgcgaagccgcgaggugaagcaaaaaccggggcuc
+'Olithodiscus'       ugcuacauuggguagaacaauaaguugcuaaguugcgaaaccaagcgaaaaucuacucua
+
+'Tobacco'            aguucggauugcaggcugcaacucgccugcaugaagccggaaucgcuaguaaucgccggu
+'Rice'               aguucggauugcaggcugcaacucgccugcaugaagcaggaaucgcuaguaaucgccggu
+'Marchantia'         aguucggauugcaggcugcaacucgccugcaugaagccggaaucgcuaguaaucgccggu
+'Chlamydomonas'      aguucggauuguaggcugcaacucgccuacaugaagccggaaucgcuaguaaucgccagu
+'Chlorella'          aguucggauugcaggcugcaacucgccugcaugaagucggaaucgcuaguaaucgcuggu
+'Euglena'            aguucggauuguaggcugaaacucgccuacaugaagccggaaucgcuaguaaucgccggu
+'Anacystis_nidulans' aguucagauugcaggcugcaacucgccugcaugaaggcggaaucgcuaguaaucgcaggu
+'Olithodiscus'       aguucggauuguaggcugcaacucgccuacauaaagauggaaucgcuaguaaucgcuggu
+
+'Tobacco'            cagauacggcggugaauucg
+'Rice'               cagauacggcggugaauccg
+'Marchantia'         cagauacggcggugaauccg
+'Chlamydomonas'      cagauauggcggugaauacg
+'Chlorella'          cagauacagcggugaauacg
+'Euglena'            cagauacggcggugaauacg
+'Anacystis_nidulans' cagauacugcggugaauacg
+'Olithodiscus'       cagacacagcggugaau-cg
+;
+END; [Characters]
+
+BEGIN Distances;
+DIMENSIONS ntax=8;
+FORMAT labels=left diagonal triangle=both;
+MATRIX
+[1] 'Tobacco'              0.0 0.026115343 0.02937976 0.112445414 0.07836644 0.13626374 0.12295974 0.14052288
+[2] 'Rice'                 0.026115343 0.0 0.041304346 0.12104689 0.088202864 0.14379802 0.13152175 0.14472252
+[3] 'Marchantia'           0.02937976 0.041304346 0.0 0.099236645 0.06394708 0.12294182 0.12065218 0.132753
+[4] 'Chlamydomonas'        0.112445414 0.12104689 0.099236645 0.0 0.09955752 0.14207049 0.14285715 0.15611354
+[5] 'Chlorella'            0.07836644 0.088202864 0.06394708 0.09955752 0.0 0.1160221 0.11797133 0.11589404
+[6] 'Euglena'              0.13626374 0.14379802 0.12294182 0.14207049 0.1160221 0.0 0.15916575 0.13516484
+[7] 'Anacystis_nidulans'   0.12295974 0.13152175 0.12065218 0.14285715 0.11797133 0.15916575 0.0 0.13601741
+[8] 'Olithodiscus'         0.14052288 0.14472252 0.132753 0.15611354 0.11589404 0.13516484 0.13601741 0.0
+;
+END; [Distances]
+
+BEGIN Splits;
+DIMENSIONS ntax=8 nsplits=22;
+FORMAT labels=no weights=yes confidences=no intervals=no;
+PROPERTIES fit=99.97 leastsquares cyclic;
+CYCLE 1 3 5 4 6 8 7 2;
+MATRIX
+[1, size=1] 	 0.016211722 	  1 3 4 5 6 7 8,
+[2, size=3] 	 8.7804487E-4 	  1 3 4 5 6,
+[3, size=3] 	 8.469452E-4 	  1 3 5,
+[4, size=2] 	 0.0010546476 	  1 3,
+[5, size=1] 	 0.0070843184 	  1,
+[6, size=1] 	 0.060344655 	  1 2 3 4 5 6 8,
+[7, size=2] 	 0.012729882 	  1 2 3 4 5 6,
+[8, size=3] 	 0.004284748 	  1 2 3 4 5,
+[9, size=4] 	 0.0012593234 	  1 2 3 5,
+[10, size=3] 	 0.02629856 	  1 2 3,
+[11, size=2] 	 0.00926926 	  1 2,
+[12, size=1] 	 0.056107916 	  1 2 3 4 5 6 7,
+[13, size=2] 	 0.015554926 	  1 2 3 4 5 7,
+[14, size=4] 	 6.4487924E-4 	  1 2 3 7,
+[15, size=3] 	 0.0034184847 	  1 2 7,
+[16, size=1] 	 0.06205432 	  1 2 3 4 5 7 8,
+[17, size=2] 	 0.0027638297 	  1 2 3 5 7 8,
+[18, size=4] 	 6.1316066E-4 	  1 2 7 8,
+[19, size=1] 	 0.060209602 	  1 2 3 5 6 7 8,
+[20, size=1] 	 0.028525183 	  1 2 3 4 6 7 8,
+[21, size=2] 	 0.0015464443 	  1 2 4 6 7 8,
+[22, size=1] 	 0.007429804 	  1 2 4 5 6 7 8,
+;
+END; [Splits]
+
+BEGIN Network;
+DIMENSIONS ntax=8 nvertices=56 nedges=88;
+DRAW to_scale;
+TRANSLATE
+2 'Tobacco',
+3 'Marchantia',
+4 'Chlorella',
+5 'Chlamydomonas',
+6 'Euglena',
+7 'Olithodiscus',
+8 'Anacystis_nidulans',
+9 'Rice',
+;
+VERTICES
+1 -0.0070843184 0.0 w=2 h=2 s=n,
+2 0.0 0.0 w=2 h=2 s=n,
+3 -0.012454415 0.013213306 w=2 h=2 s=n,
+4 -0.045576796 0.03632801 w=2 h=2 s=n,
+5 -0.093059 0.048925586 w=2 h=2 s=n,
+6 -0.12993936 -0.002631417 w=2 h=2 s=n,
+7 -0.10964275 -0.056568787 w=2 h=2 s=n,
+8 -0.05258456 -0.07395056 w=2 h=2 s=n,
+9 0.002805852 -0.0133439405 w=2 h=2 s=n,
+10 -0.008058686 -4.0359618E-4 w=2 h=2 s=n,
+11 -0.015647998 0.003547192 w=2 h=2 s=n,
+12 -0.016622365 0.003143596 w=2 h=2 s=n,
+13 -0.017221246 0.0025447153 w=2 h=2 s=n,
+14 -0.008657566 -0.0010024769 w=2 h=2 s=n,
+15 -0.042920925 0.003143596 w=2 h=2 s=n,
+16 -0.043519806 0.0025447153 w=2 h=2 s=n,
+17 -0.01806523 0.005964426 w=2 h=2 s=n,
+18 -0.0190396 0.00556083 w=2 h=2 s=n,
+19 -0.045338158 0.00556083 w=2 h=2 s=n,
+20 -0.04593704 0.004961949 w=2 h=2 s=n,
+21 -0.047100503 0.0044800267 w=2 h=2 s=n,
+22 -0.04468327 0.0020627931 w=2 h=2 s=n,
+23 -0.04593395 0.0058076144 w=2 h=2 s=n,
+24 -0.046532832 0.0052087335 w=2 h=2 s=n,
+25 -0.047696292 0.0047268113 w=2 h=2 s=n,
+26 -0.018299878 0.0065309126 w=2 h=2 s=n,
+27 -0.019274246 0.0061273165 w=2 h=2 s=n,
+28 -0.045572806 0.0061273165 w=2 h=2 s=n,
+29 -0.046168596 0.0063741007 w=2 h=2 s=n,
+30 -0.046767477 0.00577522 w=2 h=2 s=n,
+31 -0.04793094 0.005293298 w=2 h=2 s=n,
+32 -0.047696292 0.0038487664 w=2 h=2 s=n,
+33 -0.047100503 0.003601982 w=2 h=2 s=n,
+34 -0.04468327 0.0011847483 w=2 h=2 s=n,
+35 -0.043519806 0.0016666704 w=2 h=2 s=n,
+36 -0.017221246 0.0016666704 w=2 h=2 s=n,
+37 -0.008657566 -0.0018805218 w=2 h=2 s=n,
+38 -0.050960716 0.0022635236 w=2 h=2 s=n,
+39 -0.050726067 0.0016970371 w=2 h=2 s=n,
+40 -0.050726067 8.1899227E-4 w=2 h=2 s=n,
+41 -0.050130278 5.722077E-4 w=2 h=2 s=n,
+42 -0.047713045 -0.001845026 w=2 h=2 s=n,
+43 -0.055597585 -0.010941885 w=2 h=2 s=n,
+44 -0.05500179 -0.01118867 w=2 h=2 s=n,
+45 -0.05258456 -0.013605904 w=2 h=2 s=n,
+46 -0.06533159 -0.0036890889 w=2 h=2 s=n,
+47 -0.065096945 -0.0042555756 w=2 h=2 s=n,
+48 -0.065096945 -0.0051336205 w=2 h=2 s=n,
+49 -0.06996846 -0.016894499 w=2 h=2 s=n,
+50 -0.050484385 0.00635097 w=2 h=2 s=n,
+51 -0.05351416 0.0033211955 w=2 h=2 s=n,
+52 -0.06788504 -0.002631417 w=2 h=2 s=n,
+53 -0.01770808 0.007959641 w=2 h=2 s=n,
+54 -0.018682446 0.0075560445 w=2 h=2 s=n,
+55 -0.044981007 0.0075560445 w=2 h=2 s=n,
+56 -0.045576796 0.007802829 w=2 h=2 s=n,
+;
+VLABELS
+2 'Tobacco' x=12 y=6 f='Dialog-PLAIN-10',
+3 'Marchantia' x=-19 y=20,
+4 'Chlorella' x=-21 y=23,
+5 'Chlamydomonas' x=-47 y=19,
+6 'Euglena' x=-52 y=6,
+7 'Olithodiscus' x=-37 y=-12,
+8 'Anacystis_nidulans' x=-45 y=-16,
+9 'Rice' x=-3 y=-13,
+;
+EDGES
+1 1 2 s=5 w=0.0070843184,
+2 10 1 s=4 w=0.0010546476,
+3 11 1 s=11 w=0.00926926,
+4 12 10 s=11 w=0.00926926,
+5 12 11 s=4 w=0.0010546476,
+6 13 12 s=3 w=8.469452E-4,
+7 14 10 s=3 w=8.469452E-4,
+8 14 13 s=11 w=0.00926926,
+9 15 12 s=10 w=0.02629856,
+10 16 13 s=10 w=0.02629856,
+11 16 15 s=3 w=8.469452E-4,
+12 17 11 s=15 w=0.0034184847,
+13 18 12 s=15 w=0.0034184847,
+14 18 17 s=4 w=0.0010546476,
+15 19 15 s=15 w=0.0034184847,
+16 19 18 s=10 w=0.02629856,
+17 20 16 s=15 w=0.0034184847,
+18 20 19 s=3 w=8.469452E-4,
+19 21 20 s=9 w=0.0012593234,
+20 22 16 s=9 w=0.0012593234,
+21 22 21 s=15 w=0.0034184847,
+22 23 19 s=14 w=6.4487924E-4,
+23 24 20 s=14 w=6.4487924E-4,
+24 24 23 s=3 w=8.469452E-4,
+25 25 21 s=14 w=6.4487924E-4,
+26 25 24 s=9 w=0.0012593234,
+27 26 17 s=18 w=6.1316066E-4,
+28 27 18 s=18 w=6.1316066E-4,
+29 27 26 s=4 w=0.0010546476,
+30 28 19 s=18 w=6.1316066E-4,
+31 28 27 s=10 w=0.02629856,
+32 29 23 s=18 w=6.1316066E-4,
+33 29 28 s=14 w=6.4487924E-4,
+34 30 24 s=18 w=6.1316066E-4,
+35 30 29 s=3 w=8.469452E-4,
+36 31 25 s=18 w=6.1316066E-4,
+37 31 30 s=9 w=0.0012593234,
+38 32 25 s=2 w=8.7804487E-4,
+39 33 21 s=2 w=8.7804487E-4,
+40 33 32 s=14 w=6.4487924E-4,
+41 34 22 s=2 w=8.7804487E-4,
+42 34 33 s=15 w=0.0034184847,
+43 35 16 s=2 w=8.7804487E-4,
+44 35 34 s=9 w=0.0012593234,
+45 36 13 s=2 w=8.7804487E-4,
+46 36 35 s=10 w=0.02629856,
+47 37 14 s=2 w=8.7804487E-4,
+48 37 36 s=11 w=0.00926926,
+49 37 9 s=1 w=0.016211722,
+50 38 31 s=8 w=0.004284748,
+51 39 25 s=8 w=0.004284748,
+52 39 38 s=18 w=6.1316066E-4,
+53 40 32 s=8 w=0.004284748,
+54 40 39 s=2 w=8.7804487E-4,
+55 41 33 s=8 w=0.004284748,
+56 41 40 s=14 w=6.4487924E-4,
+57 42 34 s=8 w=0.004284748,
+58 42 41 s=15 w=0.0034184847,
+59 43 40 s=7 w=0.012729882,
+60 44 41 s=7 w=0.012729882,
+61 44 43 s=14 w=6.4487924E-4,
+62 45 42 s=7 w=0.012729882,
+63 45 44 s=15 w=0.0034184847,
+64 45 8 s=6 w=0.060344655,
+65 46 38 s=13 w=0.015554926,
+66 47 39 s=13 w=0.015554926,
+67 47 46 s=18 w=6.1316066E-4,
+68 48 40 s=13 w=0.015554926,
+69 48 47 s=2 w=8.7804487E-4,
+70 49 43 s=13 w=0.015554926,
+71 49 48 s=7 w=0.012729882,
+72 49 7 s=12 w=0.056107916,
+73 50 31 s=17 w=0.0027638297,
+74 50 5 s=19 w=0.060209602,
+75 51 38 s=17 w=0.0027638297,
+76 51 50 s=8 w=0.004284748,
+77 52 46 s=17 w=0.0027638297,
+78 52 51 s=13 w=0.015554926,
+79 52 6 s=16 w=0.06205432,
+80 53 26 s=21 w=0.0015464443,
+81 53 3 s=22 w=0.007429804,
+82 54 27 s=21 w=0.0015464443,
+83 54 53 s=4 w=0.0010546476,
+84 55 28 s=21 w=0.0015464443,
+85 55 54 s=10 w=0.02629856,
+86 56 29 s=21 w=0.0015464443,
+87 56 55 s=14 w=6.4487924E-4,
+88 56 4 s=20 w=0.028525183,
+;
+END; [Network]
+
+BEGIN st_Assumptions;
+uptodate;
+chartransform=Uncorrected_P;
+disttransform=NeighborNet;
+splitstransform=EqualAngle;
+SplitsPostProcess filter=dimension value=4;
+ exclude  no missing;
+autolayoutnodelabels;
+END; [st_Assumptions]
