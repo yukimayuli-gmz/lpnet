@@ -1242,7 +1242,8 @@ make.matrix <- function(n){
 }
 #write the content of nexus file
 make.nexus_split_block_order<-function(o,p,k,taxaname=NULL){
-  a<-nnls(make.matrix(k),p)[[1]]
+  a_residue<-nnls(make.matrix(k),p)
+  a<-a_residue$x
   la<-length(which(a>0))
   x<-"#nexus"
   x<-c(x,"BEGIN Taxa;")
@@ -1306,7 +1307,9 @@ make.nexus_split_block_order<-function(o,p,k,taxaname=NULL){
   }
   x<-c(x,";")
   x<-c(x,"END; [Splits]")
-  return(x)
+  residue<-a_residue$deviance
+  lsfit<-(1-residue/sum(p^2))*100
+  return(list(x,lsfit))
 }
 #use ordering to write nexus file
 draw_network_split_block<-function(a,A,taxaname=NULL){
@@ -1339,7 +1342,8 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' First construct a tree for the distance matrix.Then use Linear Programming(lp) to change the circular ordering.
 #' The ordering have the biggest sum of quartets for all taxa is the lp net ordering.
 #' Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering.
-#' Finally, write a nexus file with taxa block and splits block for SplitsTree4 to see the circular network.
+#' Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix.
+#' And write a nexus file with taxa block and splits block for SplitsTree4 to see the circular network.
 #'
 #' @param M the distance matrix for construct tree and network;
 #' (the matrix should fit the triangle inequality and the diagonal should be 0).
@@ -1354,7 +1358,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' @param  taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
 #' @param  sequencelength the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).
 #'
-#' @return None (invisible ‘NULL’).
+#' @return The LSfit value.
 #'
 #' @importFrom ape nj
 #' @importFrom Rglpk Rglpk_solve_LP
@@ -1494,9 +1498,15 @@ lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type=NULL,filename="lp
 
   lp_ordering<-lp_opt(original_ordering,lpsolution,tredge,taxa)#calculate lp net's circular ordering
 
-  write.table(draw_network_split_block(lp_ordering,M,taxaname), file =filename, quote = FALSE, row.names = FALSE, col.names = FALSE)
+  split_block_and_lsfit<-draw_network_split_block(lp_ordering,M,taxaname)
 
-  return()
+  split_block<-split_block_and_lsfit[[1]]
+
+  write.table(split_block, file =filename, quote = FALSE, row.names = FALSE, col.names = FALSE)
+
+  lsfit<-split_block_and_lsfit[[2]]
+
+  return(lsfit)
 }
 
 
