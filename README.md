@@ -7,9 +7,9 @@ A R package for constructing a circular split network from a distance matrix by 
 * `read.nexus.distanceblock`<br>
 * `read.nexus.taxablock`<br>
 
-The main function is `lpnet`. `lpnet` constructs a planner network which has a circular ordering for a distance matrix, and writes a nexus file for `SplitsTree4`. First construct a tree by different tree construct method (`neighbot-joining`, symmetry and not symmetry `neighbornet tree`, `UNJ`, `BioNJ`) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. The ordering have the biggest sum of quartets for all taxa is the lp net ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, write a nexus file with taxa block and splits block for `SplitsTree4` to see the circular network.<br>
+The main function is `lpnet`. `lpnet` constructs a planner network which has a circular ordering for a distance matrix, and writes a nexus file for `SplitsTree4`. First construct a tree by different tree construct method (`neighbot-joining`, symmetry and not symmetry `neighbornet tree`, `UNJ`, `BioNJ`) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, write a nexus file with taxa block and splits block for `SplitsTree4` to see the circular network.<br>
 
-The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to read the distance matrix and taxa names from a nex file instead of input them by hand. In addition the distance block in the nex file should be set as `diagonal` and `triangle=both`.<br>
+The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to read the distance matrix and taxa names from a nex file instead of input them by hand. In addition the distance block in the nex file should be set as `diagonal` and `triangle=both`.
 
 ## Installation
 
@@ -18,7 +18,9 @@ Then, install the `lpnet` package from github.<br>
 
     devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
 
-## Usage
+## Calculate distance matrix from sequence alignment
+
+The input of function `lpnet` is a distance matrix. We can use the software `SplitsTree4` to read a sequence alignment file(`.nex`, `.faste`) and save as a nexus file which has a distance matrix(the distance block should be set as `diagonal` and `triangle=both`). In addition, `SplitsTree4` has a variety of methods and parameters for calculating distance matrix from sequence alignment. Then we can use function `read.nexus.distanceblock` to read the distance matrix in R.
 
 ## Reference
 
