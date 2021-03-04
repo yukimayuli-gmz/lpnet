@@ -6,12 +6,18 @@
 * `lpnet`<br>
 * `read.nexus.distanceblock`<br>
 * `read.nexus.taxablock`<br>
-  The main function is `lpnet`. `lpnet` constructs a planner network which has a circular ordering for a distance matrix, and writes a nexus file for `SplitsTree4`. First construct a tree by different tree construct method (`neighbot-joining`, symmetry and not symmetry `neighbornet tree`, `UNJ`, `BioNJ`) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. The ordering have the biggest sum of quartets for all taxa is the lp net ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, write a nexus file with taxa block and splits block for `SplitsTree4` to see the circular network.
+
+  The main function is `lpnet`. `lpnet` constructs a planner network which has a circular ordering for a distance matrix, and writes a nexus file for `SplitsTree4`. First construct a tree by different tree construct method (`neighbot-joining`, symmetry and not symmetry `neighbornet tree`, `UNJ`, `BioNJ`) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. The ordering have the biggest sum of quartets for all taxa is the lp net ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, write a nexus file with taxa block and splits block for `SplitsTree4` to see the circular network.<br>
+
+  The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to read the distance matrix and taxa names from a nex file instead of input them by hand. In addition the distance block in the nex file should be set as `diagonal` and `triangle=both`.<br>
 
 ## Installation
 
-Only for Windows. Download the binary package (`lpnet_0.1.0.zip`) for install and install the package locally.
-devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
+First, install the R package `devtools`.<br>
+Then, install the `lpnet` package from github.<br>
+    devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")<br>
+
+## Usage
 
 ## Reference
 
