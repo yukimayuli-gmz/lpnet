@@ -2,7 +2,7 @@
 
 ## Package
 
-  A R package for constructing a circular split network from a distance matrix by Linear Programming. The functions in `lpnet` package are<br>
+A R package for constructing a circular split network from a distance matrix by Linear Programming. The functions in `lpnet` package are<br>
 * `lpnet`<br>
 * `read.nexus.distanceblock`<br>
 * `read.nexus.taxablock`<br>
@@ -16,7 +16,7 @@ The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to
 First, install the R package `devtools`.<br>
 Then, install the `lpnet` package from github.<br>
 
-    devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")<br>
+    devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
 
 ## Usage
 
