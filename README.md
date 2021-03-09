@@ -20,7 +20,7 @@ Then, install the `lpnet` package from github.<br>
 
 ## Calculate distance matrix from sequence alignment
 
-The input of function `lpnet` is a distance matrix. We can use the software `SplitsTree4` to read a sequence alignment file(`.nex`, `.faste`) and save as a nexus file which has a distance matrix(the distance block should be set as `diagonal` and `triangle=both`). In addition, `SplitsTree4` has a variety of methods and parameters for calculating distance matrix from sequence alignment. Then we can use function `read.nexus.distanceblock` to read the distance matrix in R.
+The input of function `lpnet` is a distance matrix. We can use the software `SplitsTree4` to read a sequence alignment file(`.nex`, `.faste`) and save as a nexus file which has a distance matrix(the distance block should be set as `diagonal` and `triangle=both`). In addition, [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) has a variety of methods and parameters for calculating distance matrix from sequence alignment. Then we can use function `read.nexus.distanceblock` to read the distance matrix in R.
 
 ## Reference
 
