@@ -1345,8 +1345,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix.
 #' And write a nexus file with taxa block and splits block for SplitsTree4 to see the circular network.
 #'
-#' @param M the distance matrix for construct tree and network;
-#' (the matrix should fit the triangle inequality and the diagonal should be 0).
+#' @param M the distance matrix for construct tree and network (the matrix should fit the triangle inequality and the diagonal should be 0).
 #' @param tree.method method for construct the original tree for lp, default is \code{unj}, for unweighted ntighbor joining tree;
 #' \code{nj} for neighbor joining tree; \code{nnet} for symmetry nnet tree; \code{nnetns} for no symmetry nnet tree;
 #' \code{BioNJ} for BioNJ tree.
@@ -1354,7 +1353,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' \code{gurobi} for the gurobi package.
 #' @param lp.type a character vector indicating the types of the objective variables. default is \code{NULL}, for ordinary;
 #' \code{B} for binary; \code{I} for intrger; \code{C} for continuous.
-#' @param  filename a character will be the naxus file's name, default is \code{lpnet.net}
+#' @param  filename a character will be the naxus file's name, default is \code{lpnet.nex}.
 #' @param  taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
 #' @param  sequencelength the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).
 #'
