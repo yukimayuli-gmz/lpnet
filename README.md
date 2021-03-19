@@ -22,6 +22,17 @@ Then, install the `lpnet` package from github.<br>
 
 The input of function `lpnet` is a distance matrix. We can use the software [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) to read a sequence alignment file(`.nex`, `.fasta`) and save as a nexus file which has a distance matrix(the distance block should be set as `diagonal` and `triangle=both`). In addition, [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) has a variety of methods and parameters for calculating distance matrix from sequence alignment. Then we can use function `read.nexus.distanceblock` to read the distance matrix in R.
 
+## Parameters of `lpnet`
+
+When use the `lpnet` function in R to construct a network, there some parameters can be set.<br>
+* `M` the distance matrix for construct tree and network (the matrix should fit the triangle inequality and the diagonal should be 0).<br>
+* `tree.method` method for construct the original tree for lp, default is `unj`, for unweighted ntighbor joining tree; `nj` for neighbor joining tree; `nnet` for symmetry nnet tree; `nnetns` for no symmetry nnet tree; `BioNJ` for BioNJ tree.<br>
+* `lp.package` which package will used for Linear Programming, default is `Rglpk`, for a free R package; `gurobi` for the gurobi package.<br>
+* `lp.type` a character vector indicating the types of the objective variables. default is `NULL`, for ordinary; `B` for binary; `I` for intrger; `C` for continuous.<br>
+* `filename` a character will be the naxus file's name, default is `lpnet.nex`.<br>
+* `taxaname` a character set of names for taxa, ordering is consist with original distance matrix `M`.<br>
+* `sequencelength` the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).<br>
+
 ## Reference
 
 [1][Huson, D. H., & Bryant, D. (2006). Application of phylogenetic networks in evolutionary studies. Molecular biology and evolution, 23(2), 254-267.](https://academic.oup.com/mbe/article/23/2/254/1118872)<br>
