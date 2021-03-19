@@ -802,6 +802,7 @@ calculate_reduced_M_balance<-function(M,i,j,n1,n2){
 #construct matrix of edge and label
 BalanceT<-function(M){
   n<-sqrt(length(M))
+  S<-c(seq(from = 1 , to = 1 , length.out = n),seq(from = 0 , to = 0 , length.out = n-2))
   tree<-list()
   T<-matrix(0,2*n-3,3)
   L<-c(1:n)
