@@ -40,7 +40,7 @@ A character set of names for taxa, ordering is consist with original distance ma
 * `sequencelength`<br>
 The sequence length of the data only used for BioNJ (default is 1 for only distance matrix).<br>
 
-# The LSfit value
+## The LSfit value
 
 The `lpnet` function will return the `LSfit` value in R. The `LSfit` will measure the fit between the pairwise distances in the constructed network and the pairwise distances in the origin matrix. And the `LSfit` is given by:<br>
 <a href="https://www.codecogs.com/eqnedit.php?latex=(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." target="_blank"><img src="https://latex.codecogs.com/gif.latex?(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." title="(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." /></a>
