@@ -43,7 +43,8 @@ The sequence length of the data only used for BioNJ (default is 1 for only dista
 # The LSfit value
 
 The `lpnet` function will return the `LSfit` value in R. The `LSfit` will measure the fit between the pairwise distances in the constructed network and the pairwise distances in the origin matrix. And the `LSfit` is given by:<br>
-<a href="https://www.codecogs.com/eqnedit.php?latex=(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100" title="(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." target="_blank"><img src="https://latex.codecogs.com/gif.latex?(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." title="(1-\frac{\sum_{ij}(d_{ij}-p_{ij})^{2}}{\sum_{ij}d_{ij}^{2}})*100." /></a>
+Where the <a href="https://www.codecogs.com/eqnedit.php?latex=d_{ij}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?d_{ij}" title="d_{ij}" /></a> are pairwise distances in origin matrix and <a href="https://www.codecogs.com/eqnedit.php?latex=p_{ij}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_{ij}" title="p_{ij}" /></a> are pairwise distances in constructed network.
 
 ## Reference
 
