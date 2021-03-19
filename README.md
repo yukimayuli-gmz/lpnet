@@ -25,13 +25,20 @@ The input of function `lpnet` is a distance matrix. We can use the software [Spl
 ## Parameters of `lpnet`
 
 When use the `lpnet` function in R to construct a network, there some parameters can be set.<br>
-* `M` the distance matrix for construct tree and network (the matrix should fit the triangle inequality and the diagonal should be 0).<br>
-* `tree.method` method for construct the original tree for lp, default is `unj`, for unweighted ntighbor joining tree; `nj` for neighbor joining tree; `nnet` for symmetry nnet tree; `nnetns` for no symmetry nnet tree; `BioNJ` for BioNJ tree.<br>
-* `lp.package` which package will used for Linear Programming, default is `Rglpk`, for a free R package; `gurobi` for the gurobi package.<br>
-* `lp.type` a character vector indicating the types of the objective variables. default is `NULL`, for ordinary; `B` for binary; `I` for intrger; `C` for continuous.<br>
-* `filename` a character will be the naxus file's name, default is `lpnet.nex`.<br>
-* `taxaname` a character set of names for taxa, ordering is consist with original distance matrix `M`.<br>
-* `sequencelength` the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).<br>
+* `M`<br>
+The distance matrix for construct tree and network (the matrix should fit the triangle inequality and the diagonal should be 0).<br>
+* `tree.method`<br>
+Method for construct the original tree for lp, default is `unj`, for unweighted ntighbor joining tree; `nj` for neighbor joining tree; `nnet` for symmetry nnet tree; `nnetns` for no symmetry nnet tree; `BioNJ` for BioNJ tree.<br>
+* `lp.package`<br>
+Which package will used for Linear Programming, default is `Rglpk`, for a free R package; `gurobi` for the gurobi package.<br>
+* `lp.type`<br>
+A character vector indicating the types of the objective variables. default is `NULL`, for ordinary; `B` for binary; `I` for intrger; `C` for continuous.<br>
+* `filename`<br>
+A character will be the naxus file's name, default is `lpnet.nex`.<br>
+* `taxaname`<br>
+A character set of names for taxa, ordering is consist with original distance matrix `M`.<br>
+* `sequencelength`<br>
+The sequence length of the data only used for BioNJ (default is 1 for only distance matrix).<br>
 
 ## Reference
 
