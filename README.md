@@ -9,6 +9,8 @@ A R package for constructing a circular split network from a distance matrix by 
 
 The main function is `lpnet`. `lpnet` constructs a planar network which has a circular ordering for a distance matrix, and writes a nexus file for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/)[1]. First construct a tree by different tree construct method (`neighbot-joining`[4], symmetry and not symmetry `neighbornet tree`, `UNJ`[3], `BioNJ`[2]) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix. And write a nexus file with taxa block and splits block for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) to see the circular network.<br>
 
+The functions `lpnet.optionaltree` allows user to use an optional tree to repalce the tree which constructed in `lpnet`. In addition the input tree's class should be `phylo` and the `edge` block is necessary.
+
 The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to read the distance matrix and taxa names from a nex file instead of input them by hand. In addition the distance block in the nex file should be set as `diagonal` and `triangle=both`.
 
 ## Installation
