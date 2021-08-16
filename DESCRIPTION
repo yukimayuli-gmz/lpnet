@@ -11,7 +11,7 @@ LazyData: true
 Depends: R (>= 3.6)
 Imports: 
     ape (>= 5.3), Rglpk (>= 0.6-4), nnls (>= 1.4)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: 
     gurobi
 URL: http://github.com/yukimayuli-gmz/lpnet
