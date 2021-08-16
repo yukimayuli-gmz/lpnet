@@ -1374,7 +1374,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' M <- matrix(0, 8, 8)
 #' M[row(M) > col(M)] <- x
 #' M <- M + t(M)
-#' taxaname<-c("A", "B", "C", "D", "E", "F", "G", "H")
+#' taxaname <- c("A", "B", "C", "D", "E", "F", "G", "H")
 #' lpnet(M,
 #'       tree.method = "nj",
 #'       lp.package = "Rglpk",
