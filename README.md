@@ -35,7 +35,7 @@ Method for construct the original tree for lp, default is `unj`, for unweighted 
 * `lp.package`<br>
 Which package will used for Linear Programming, default is `Rglpk`, for a free R package; `gurobi` for the gurobi package.<br>
 * `lp.type`<br>
-A character vector indicating the types of the objective variables. default is `NULL`, for ordinary; `B` for binary; `I` for intrger; `C` for continuous.<br>
+A character vector indicating the types of the objective variables. default is `B`, for binary; `I` for intrger; `C` for continuous; `NULL` for ordinary.<br>
 * `filename`<br>
 A character will be the naxus file's name, default is `lpnet.nex`.<br>
 * `taxaname`<br>
