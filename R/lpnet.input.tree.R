@@ -302,8 +302,8 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' @param tree the phylogenetic tree which class is \code{phylo} for lpnet algorithm (the \code{edge} block is necessary).
 #' @param lp.package which package will used for Linear Programming, default is \code{Rglpk}, for a free R package;
 #' \code{gurobi} for the gurobi package.
-#' @param lp.type a character vector indicating the types of the objective variables. default is \code{NULL}, for ordinary;
-#' \code{B} for binary; \code{I} for intrger; \code{C} for continuous.
+#' @param lp.type a character vector indicating the types of the objective variables. default is \code{B} for binary;
+#' \code{I} for intrger; \code{C} for continuous; \code{NULL}, for ordinary.
 #' @param  filename a character will be the naxus file's name, default is \code{lpnet.nex}.
 #' @param  taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
 #'
@@ -328,12 +328,12 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' lpnet.input.tree(M,
 #'                  tree = njtree,
 #'                  lp.package = "Rglpk",
-#'                  lp.type = NULL,
+#'                  lp.type = "B",
 #'                  filename = "example.nex",
 #'                  taxaname = taxaname)
 #'
 #' @export
-lpnet.input.tree<-function(M,tree,lp.package="Rglpk",lp.type=NULL,filename="lpnet.nex",taxaname=NULL){
+lpnet.input.tree<-function(M,tree,lp.package="Rglpk",lp.type="B",filename="lpnet.nex",taxaname=NULL){
   n<-sqrt(length(M))#dim is n
 
   tr1<-tree

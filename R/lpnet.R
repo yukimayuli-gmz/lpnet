@@ -1352,8 +1352,8 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' \code{BioNJ} for BioNJ tree.
 #' @param lp.package which package will used for Linear Programming, default is \code{Rglpk}, for a free R package;
 #' \code{gurobi} for the gurobi package.
-#' @param lp.type a character vector indicating the types of the objective variables. default is \code{NULL}, for ordinary;
-#' \code{B} for binary; \code{I} for intrger; \code{C} for continuous.
+#' @param lp.type a character vector indicating the types of the objective variables. default is \code{B} for binary;
+#' \code{I} for intrger; \code{C} for continuous; \code{NULL}, for ordinary.
 #' @param  filename a character will be the naxus file's name, default is \code{lpnet.nex}.
 #' @param  taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
 #' @param  sequencelength the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).
@@ -1378,12 +1378,12 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' lpnet(M,
 #'       tree.method = "nj",
 #'       lp.package = "Rglpk",
-#'       lp.type = NULL,
+#'       lp.type = "B",
 #'       filename = "example.nex",
 #'       taxaname = taxaname)
 #'
 #' @export
-lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type=NULL,filename="lpnet.nex",taxaname=NULL,sequencelength=1){
+lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type="B",filename="lpnet.nex",taxaname=NULL,sequencelength=1){
   n<-sqrt(length(M))#dim is n
 
   if(tree.method=="nj"){
