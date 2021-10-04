@@ -40,8 +40,6 @@ A character vector indicating the types of the objective variables. default is `
 A character will be the naxus file's name, default is `lpnet.nex`.<br>
 * `taxaname`<br>
 A character set of names for taxa, ordering is consist with original distance matrix `M`.<br>
-* `sequencelength`<br>
-The sequence length of the data only used for BioNJ (default is 1 for only distance matrix).<br>
 
 ## The LSfit value
 
