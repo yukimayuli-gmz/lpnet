@@ -961,9 +961,9 @@ calculate_lamda_BioNJ<-function(V,i,j){
   return(lamda)
 }
 #construct matrix of edge and label
-BioNJ<-function(M,sequence_length = 1){
+BioNJ<-function(M){
   n<-sqrt(length(M))
-  V<-M/sequence_length
+  V<-M
   tree<-list()
   T<-matrix(0,2*n-3,3)
   L<-c(1:n)
@@ -1356,7 +1356,6 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #' \code{I} for intrger; \code{C} for continuous; \code{NULL}, for ordinary.
 #' @param  filename a character will be the naxus file's name, default is \code{lpnet.nex}.
 #' @param  taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
-#' @param  sequencelength the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).
 #'
 #' @return The LSfit value.
 #'
@@ -1383,7 +1382,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #'       taxaname = taxaname)
 #'
 #' @export
-lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type="B",filename="lpnet.nex",taxaname=NULL,sequencelength=1){
+lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type="B",filename="lpnet.nex",taxaname=NULL){
   n<-sqrt(length(M))#dim is n
 
   if(tree.method=="nj"){
@@ -1408,7 +1407,7 @@ lpnet<-function(M,tree.method="unj",lp.package="Rglpk",lp.type="B",filename="lpn
     tr1$edge<-adjust_edge(y,tredge,n)
   }
   if(tree.method=="BioNJ"){
-    tr1 <- BioNJ(M,sequencelength)#tr1 is BioNJ tree
+    tr1 <- BioNJ(M)#tr1 is BioNJ tree
     tredge=tr1[["edge"]]
     y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
     tr1$edge<-adjust_edge(y,tredge,n)
