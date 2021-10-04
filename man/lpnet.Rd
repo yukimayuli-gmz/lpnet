@@ -8,10 +8,9 @@ lpnet(
   M,
   tree.method = "unj",
   lp.package = "Rglpk",
-  lp.type = NULL,
+  lp.type = "B",
   filename = "lpnet.nex",
-  taxaname = NULL,
-  sequencelength = 1
+  taxaname = NULL
 )
 }
 \arguments{
@@ -24,14 +23,12 @@ lpnet(
 \item{lp.package}{which package will used for Linear Programming, default is \code{Rglpk}, for a free R package;
 \code{gurobi} for the gurobi package.}
 
-\item{lp.type}{a character vector indicating the types of the objective variables. default is \code{NULL}, for ordinary;
-\code{B} for binary; \code{I} for intrger; \code{C} for continuous.}
+\item{lp.type}{a character vector indicating the types of the objective variables. default is \code{B} for binary;
+\code{I} for intrger; \code{C} for continuous; \code{NULL}, for ordinary.}
 
 \item{filename}{a character will be the naxus file's name, default is \code{lpnet.nex}.}
 
 \item{taxaname}{a character set of names for taxa, ordering is consist with original distance matrix \code{M}.}
-
-\item{sequencelength}{the sequence length of the data only used for BioNJ (default is 1 for only distance matrix).}
 }
 \value{
 The LSfit value.
@@ -56,7 +53,7 @@ taxaname <- c("A", "B", "C", "D", "E", "F", "G", "H")
 lpnet(M,
       tree.method = "nj",
       lp.package = "Rglpk",
-      lp.type = NULL,
+      lp.type = "B",
       filename = "example.nex",
       taxaname = taxaname)
 
