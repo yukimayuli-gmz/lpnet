@@ -1,5 +1,5 @@
 #nexus
-[An 80 taxa distance matrix for which Lpnet is extremely slow]
+[An 80 taxa distance matrix for which Lpnet is extremely slow.]
 
 BEGIN Taxa;
 DIMENSIONS ntax=80;
