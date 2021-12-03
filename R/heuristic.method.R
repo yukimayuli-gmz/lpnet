@@ -1063,6 +1063,7 @@ sum_index<-function(a,b,c,d,M){
 }
 #calculate the W value for every interior vertex
 calculate_W_average<-function(y,taxa,tredge,M){
+  n<-sqrt(length(M))
   ly<-length(y)
   A<-matrix(0,nrow = ly,ncol = 3)
   A[,1]<-y
@@ -1102,6 +1103,7 @@ calculate_W_average<-function(y,taxa,tredge,M){
 }
 #from large to small of the W value, flip all vertex which W value is positive and get the circular ordering
 Q_NJ_average_function<-function(a,taxa,tredge,M){
+  n<-sqrt(length(M))
   y<-a
   W<-calculate_W_average(y,taxa,tredge,M)
   ly<-length(y)
@@ -1208,6 +1210,7 @@ reverse<-function(a,t){
 }
 #calculate the score to judge whether we need to flip this edge
 better_ordering<-function(a,t,M){
+  n<-length(a)
   x<-c()
   y<-c()
   x<-a[t[1]:t[2]]
@@ -1234,20 +1237,19 @@ better_ordering<-function(a,t,M){
 }
 #loop until no edges need to flip or the loop number over the limit
 ordering_improvement<-function(ordering,loop,taxa,M){
+  n<-length(ordering)
   s<-1
   b<-0
   while (s>0) {
     s<-0
     for (i in (n+2):(n+n-2)) {
       t<-which_ordering_in_taxa(ordering,taxa[[i]])
-      if(length(t)>1){
-        better<-better_ordering(ordering,t,M)
-        if(better>0){
-          ordering<-reverse(ordering,t)
-          #print(i)
-          }
-        s<-s+better
-      }
+      better<-better_ordering(ordering,t,M)
+      if(better>0){
+        ordering<-reverse(ordering,t)
+        #print(i)
+        }
+      s<-s+better
     }
     #print(s)
     b<-b+1
