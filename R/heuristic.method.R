@@ -1207,7 +1207,7 @@ reverse<-function(a,t){
   return(a)
 }
 #calculate the score to judge whether we need to flip this edge
-better_ordering<-function(a,t){
+better_ordering<-function(a,t,M){
   x<-c()
   y<-c()
   x<-a[t[1]:t[2]]
@@ -1233,14 +1233,14 @@ better_ordering<-function(a,t){
   return(as.numeric(s<0))
 }
 #loop until no edges need to flip or the loop number over the limit
-ordering_improvement<-function(ordering,loop,taxa){
+ordering_improvement<-function(ordering,loop,taxa,M){
   s<-1
   b<-0
   while (s>0) {
     s<-0
     for (i in (n+2):(n+n-2)) {
       t<-which_ordering_in_taxa(ordering,taxa[[i]])
-      better<-better_ordering(ordering,t)
+      better<-better_ordering(ordering,t,M)
       if(better>0){
         ordering<-reverse(ordering,t)
         #print(i)
@@ -1463,7 +1463,7 @@ heuristic.method<-function(M,tree.method="unj",loop.limit=10,filename="lpnet.nex
 
   y<-c(tredge[tredge[,1]==n+1][4],tredge[tredge[,1]==n+1][5],tredge[tredge[,1]==n+1][6])
   Q_NJ_ordering<-Q_NJ_average_function(y,taxa,tredge,M)
-  improve_ordering<-ordering_improvement(Q_NJ_ordering,loop = loop.limit,taxa)
+  improve_ordering<-ordering_improvement(Q_NJ_ordering,loop = loop.limit,taxa,M)
 
   split_block_and_lsfit<-draw_network_split_block(improve_ordering,M,taxaname)
 
