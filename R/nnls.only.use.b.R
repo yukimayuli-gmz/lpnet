@@ -1,8 +1,11 @@
-#' Only use b as the input for nnls
+#' Only use distance matrix and circular ordering as the input for nnls
 #'
 #' Using nnls (Non-negative least squares) to calculate weights of splits which are consist with a circular ordering.
 #' The input are the distance matrix and the circular ordering.
-#' The function will calculate the corresponding matrix in Fortran instead of in R.
+#' Generally, nnls use \code{A} and \code{b} as input and calculate \code{x} for \code{min(|Ax-b|^2)}.
+#' This function will calculate the corresponding matrix \code{A} in Fortran instead of in R which will use less memory and run time.
+#' And the vector \code{b} will be get from distance matrix.
+#' This function is only a intermediate step of \code{\link{heuristic.method}} and we provide this function in package for test.
 #'
 #' @param M the distance matrix (the labels of rows and columns are both from 1 to n)
 #' @param circular.ordering the circular ordering for a network.

@@ -1384,20 +1384,22 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 
 #' Consruct a circular network use a heuristic method
 #'
-#' Construct a planner network which has a circular ordering for a distance matrix, and write a nexus file for SplitsTree4.
-#' First construct a tree for the distance matrix.Then use Linear Programming(lp) to change the circular ordering.
-#' The ordering have the biggest sum of quartets for all taxa is the lp net ordering.
-#' Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering.
-#' Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix.
-#' And write a nexus file with taxa block and splits block for SplitsTree4 to see the circular network.
+#' For the process, the heuristic method function is similar with \code{\link{lpnet}}.
+#' The only different is the step which calculate the circular ordering from a tree.
+#' The heuristic method flip the edge from top to bottom which has the biggest \code{W} value.
+#' And the \code{W} value is the average of all changed quartets weights over the changed quartets number if flip the edge.
+#' Finally, we cycle through an improvement step that checks all edges and flips which edges can improve the sum of all quartets
+#' until no improvement or the number of cycles reaches the loop limit.
+#' Actually, \code{\link{lpnet}} has higher accuracy than heuristic method.
+#' As an alternative to \code{\link{lpnet}}, the heuristic method can handle more taxa number.
 #'
 #' @param M the distance matrix for construct tree and network (the matrix should fit the triangle inequality and the diagonal should be 0).
-#' @param tree.method method for construct the original tree for lp, default is \code{unj}, for unweighted ntighbor joining tree;
+#' @param tree.method method for construct the original tree for heuristic method, default is \code{unj}, for unweighted ntighbor joining tree;
 #' \code{nj} for neighbor joining tree; \code{nnet} for symmetry nnet tree; \code{nnetns} for no symmetry nnet tree;
 #' \code{BioNJ} for BioNJ tree.
 #' @param loop.limit limit for the loop number of ordering improving part, default is \code{10}.
 #' And using half the number of taxa is naturally and easily.
-#' @param filename a character will be the naxus file's name, default is \code{lpnet.nex}.
+#' @param filename a character will be the naxus file's name, default is \code{heuristic_method.nex}.
 #' @param taxaname a character set of names for taxa, ordering is consist with original distance matrix \code{M}.
 #'
 #' @return The LSfit value.
@@ -1422,7 +1424,7 @@ draw_network_split_block<-function(a,A,taxaname=NULL){
 #'                  taxaname = taxaname)
 #'
 #' @export
-heuristic.method<-function(M,tree.method="unj",loop.limit=10,filename="lpnet.nex",taxaname=NULL){
+heuristic.method<-function(M,tree.method="unj",loop.limit=10,filename="heuristic_method.nex",taxaname=NULL){
   n<-sqrt(length(M))#dim is n
 
   if(tree.method=="nj"){

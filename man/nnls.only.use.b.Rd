@@ -2,7 +2,7 @@
 % Please edit documentation in R/nnls.only.use.b.R
 \name{nnls.only.use.b}
 \alias{nnls.only.use.b}
-\title{Only use b as the input for nnls}
+\title{Only use distance matrix and circular ordering as the input for nnls}
 \usage{
 nnls.only.use.b(M, circular.ordering)
 }
@@ -26,5 +26,8 @@ A list which include:
 \description{
 Using nnls (Non-negative least squares) to calculate weights of splits which are consist with a circular ordering.
 The input are the distance matrix and the circular ordering.
-The function will calculate the corresponding matrix in Fortran instead of in R.
+Generally, nnls use \code{A} and \code{b} as input and calculate \code{x} for \code{min(|Ax-b|^2)}.
+This function will calculate the corresponding matrix \code{A} in Fortran instead of in R which will use less memory and run time.
+And the vector \code{b} will be get from distance matrix.
+This function is only a intermediate step of \code{\link{heuristic.method}} and we provide this function in package for test.
 }
