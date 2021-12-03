@@ -1240,12 +1240,14 @@ ordering_improvement<-function(ordering,loop,taxa,M){
     s<-0
     for (i in (n+2):(n+n-2)) {
       t<-which_ordering_in_taxa(ordering,taxa[[i]])
-      better<-better_ordering(ordering,t,M)
-      if(better>0){
-        ordering<-reverse(ordering,t)
-        #print(i)
+      if(length(t)>1){
+        better<-better_ordering(ordering,t,M)
+        if(better>0){
+          ordering<-reverse(ordering,t)
+          #print(i)
+          }
+        s<-s+better
       }
-      s<-s+better
     }
     #print(s)
     b<-b+1
