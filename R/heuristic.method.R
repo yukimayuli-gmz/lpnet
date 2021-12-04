@@ -1260,48 +1260,6 @@ ordering_improvement<-function(ordering,loop,taxa,M){
   return(ordering)
 }
 
-#make the corresponding matrix for nnls
-make.matrix <- function(n){
-  A <- matrix(nrow = (n*(n-1)/2),ncol = (n*(n-1)/2))
-  a<-0
-  for (i in (1:(n-1))) {
-    for (j in ((i+1):n)) {
-      a<-a+1
-      B <- matrix(nrow = n,ncol = n)
-      if(i==1){
-        for (k in (1:(j-1))) {
-          B[k,(1:k)]<-0
-        }
-        for (k in (j:n)) {
-          B[k,(1:(j-1))]<-1
-          B[k,(j:k)]<-0
-        }
-      }
-      else{
-        for (k in (1:(i-1))) {
-          B[k,(1:k)]<-0
-        }
-        for (k in (i:(j-1))) {
-          B[k,(1:(i-1))]<-1
-          B[k,(i:k)]<-0
-        }
-        for (k in (j:n)) {
-          B[k,(1:(i-1))]<-0
-          B[k,(i:(j-1))]<-1
-          B[k,(j:k)]<-0
-        }
-      }
-      s<-1
-      for (k in (2:n)) {
-        for (l in (1:(k-1))) {
-          A[s,a] <- B[k,l]
-          s<-s+1
-        }
-      }
-    }
-  }
-  return(A)
-}
 #write the content of nexus file
 make.nexus_split_block_order<-function(o,A,k,taxaname=NULL){
   a_residue<-nnls.only.use.b(A,circular.ordering = o)
