@@ -2,17 +2,23 @@
 
 ## Package
 
-A R package for constructing a circular split network from a distance matrix by Linear Programming. The functions in `lpnet` package are<br>
+A R package which main part is constructing a circular split network from a distance matrix by Linear Programming. We also provide an alternative heuristic method which has lower accurancy but bigger taxa number limit. The functions in `lpnet` package are<br>
 * `lpnet`<br>
 * `lpnet.input.tree`<br>
 * `read.nexus.distanceblock`<br>
 * `read.nexus.taxablock`<br>
+* `nnls.only.use.b`<br>
+* `heuristic.method`<br>
 
-The main function is `lpnet`. `lpnet` constructs a planar network which has a circular ordering for a distance matrix, and writes a nexus file for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/)[1]. First construct a tree by different tree construct method (`neighbot-joining`[4], symmetry and not symmetry `neighbornet tree`, `UNJ`[3], `BioNJ`[2]) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix. And write a nexus file with taxa block and splits block for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) to see the circular network.<br>
+The main function is `lpnet`. `lpnet` constructs a planar network which has a circular ordering for a distance matrix, and writes a nexus file for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/)[1]. First construct a tree by different tree construct method (`neighbot-joining`[4], symmetry and not symmetry `neighbornet tree`, `UNJ`[3], `BioNJ`[2]) for the distance matrix.Then use Linear Programming(lp) to change the circular ordering. Then use Non-negative least squares(nnls) to calculate weights of splits which are consist with the lp net ordering. Finally, return a LSfit which is the least squares fit between the pairwise distances in the graph and the pairwise distances in the matrix. And write a nexus file with taxa block and splits block for [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) to see the circular network.
 
-The functions `lpnet.input.tree` allows user to use an arbitrary phylogenetic binary tree to repalce the tree which constructed in `lpnet`. In addition the input tree's class should be `phylo` and the `edge` block is necessary.
+The function `lpnet.input.tree` allows user to use an arbitrary phylogenetic binary tree to repalce the tree which constructed in `lpnet`. In addition the input tree's class should be `phylo` and the `edge` block is necessary.
 
 The functions `read.nexus.distanceblock` and `read.nexus.taxablock` are tools to read the distance matrix and taxa names from a nex file instead of input them by hand. In addition the distance block in the nex file should be set as `diagonal` and `triangle=both`.
+
+The function `nnls.only.use.b` is an intermediate step of `heuristic.method` and we provide this function for test. The nnls(Non-negative least squares) algorithm solves <a href="https://www.codecogs.com/eqnedit.php?latex=\min{\parallel&space;Ax-b\parallel_2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\min{\parallel&space;Ax-b\parallel_2}" title="\min{\parallel Ax-b\parallel_2}" /></a> with the constraint <a href="https://www.codecogs.com/eqnedit.php?latex=x\geqslant&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x\geqslant&space;0" title="x\geqslant 0" /></a>. In this function, we construct the corresponding matrix `A` in `Fortran` instead of in `R` which will use less memory and run time. So we only need the distance matrix `M` which will be used to calculate the vector `b` directly and a circular ordering as the inputs for the `nnls.only.use.b` function.
+
+The function `heuristic.method` is an alternative to `lpnet`. For the precess, the `heuristic.method` is similar with `lpnet`. The only different is the step which calculate the circular ordering from a tree. The heuristic method flip the edge from top to bottom which has the biggest `W` value(The `W` value is the average of all changed quartets weights over the changed quartets number if flip the edge). Finally, we cycle through an improvement step that checks all edges and flips which edges can improve the sum of all quartets until no improvement or the number of cycles reaches the loop limit. Actually, `lpnet` has higher accuracy than `heuristic.method`. So, We want to use the `heuristic.method` for more taxa number that `lpnat` can't handle yet.
 
 ## Installation
 
@@ -20,6 +26,12 @@ First, install the R package `devtools`.<br>
 Then, install the `lpnet` package from github.<br>
 
     devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
+
+If you have a problem about `.Fortran()` when you are using `nnls.only.use.b` and `heuristic.method` in R. For `Windows` user, maybe you can try<br>
+
+    dyn.load("{the path of your R }/library/lpnet/libs/x64/lpnet.dll")
+
+to load the dynamic link library.
 
 ## Calculate distance matrix from sequence alignment
 
