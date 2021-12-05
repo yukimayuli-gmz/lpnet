@@ -27,6 +27,12 @@ Then, install the `lpnet` package from github.<br>
 
     devtools::install_github('yukimayuli-gmz/lpnet',ref = "main")
 
+If you have a problem about `.Fortran()` when you are using `nnls.only.use.b` and `heuristic.method` in R. For `Windows` user, maybe you can try<br>
+
+    dyn.load("{the path of your R }/library/lpnet/libs/x64/lpnet.dll")
+
+to load the dynamic link library.
+
 ## Calculate distance matrix from sequence alignment
 
 The input of function `lpnet` is a distance matrix. We can use the software [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) to read a sequence alignment file(`.nex`, `.fasta`) and save as a nexus file which has a distance matrix(the distance block should be set as `diagonal` and `triangle=both`). In addition, [SplitsTree4](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/algorithms-in-bioinformatics/software/splitstree/) has a variety of methods and parameters for calculating distance matrix from sequence alignment. Then we can use function `read.nexus.distanceblock` to read the distance matrix in R.
