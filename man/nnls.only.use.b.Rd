@@ -29,5 +29,5 @@ The input are the distance matrix and the circular ordering.
 Generally, nnls use \code{A} and \code{b} as input and calculate \code{x} for \code{min(|Ax-b|^2)}.
 This function will calculate the corresponding matrix \code{A} in Fortran instead of in R which will use less memory and run time.
 And the vector \code{b} will be get from distance matrix.
-This function is only a intermediate step of \code{\link{heuristic.method}} and we provide this function in package for test.
+This function is only an intermediate step of \code{\link{heuristic.method}} and we provide this function in package for test.
 }
