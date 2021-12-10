@@ -1261,7 +1261,7 @@ ordering_improvement<-function(ordering,loop,taxa,M){
 }
 
 #write the content of nexus file
-make.nexus_split_block_order<-function(o,A,k,taxaname=NULL){
+make.nexus_split_block_orde_use_b<-function(o,A,k,taxaname=NULL){
   a_residue<-nnls.only.use.b(A,circular.ordering = o)
   a<-a_residue$x
   la<-length(which(a>0))
@@ -1332,10 +1332,10 @@ make.nexus_split_block_order<-function(o,A,k,taxaname=NULL){
   return(list(x,lsfit))
 }
 #use ordering to write nexus file
-draw_network_split_block<-function(a,A,taxaname=NULL){
+draw_network_split_block_use_b<-function(a,A,taxaname=NULL){
   n<-length(a)
   z<-a
-  y<-make.nexus_split_block_order(z,A,n,taxaname)
+  y<-make.nexus_split_block_order_use_b(z,A,n,taxaname)
   return(y)
 }
 
@@ -1429,7 +1429,7 @@ heuristic.method<-function(M,tree.method="unj",loop.limit=10,filename="heuristic
   Q_NJ_ordering<-Q_NJ_average_function(y,taxa,tredge,M)
   improve_ordering<-ordering_improvement(Q_NJ_ordering,loop = loop.limit,taxa,M)
 
-  split_block_and_lsfit<-draw_network_split_block(improve_ordering,M,taxaname)
+  split_block_and_lsfit<-draw_network_split_block_use_b(improve_ordering,M,taxaname)
 
   split_block<-split_block_and_lsfit[[1]]
 
