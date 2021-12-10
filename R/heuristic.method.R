@@ -1261,7 +1261,7 @@ ordering_improvement<-function(ordering,loop,taxa,M){
 }
 
 #write the content of nexus file
-make.nexus_split_block_orde_use_b<-function(o,A,k,taxaname=NULL){
+make.nexus_split_block_order_use_b<-function(o,A,k,taxaname=NULL){
   a_residue<-nnls.only.use.b(A,circular.ordering = o)
   a<-a_residue$x
   la<-length(which(a>0))
